@@ -22,12 +22,12 @@
 
 \RequirePackage{hyperref}
 \RequirePackage[noabbrev]{cleveref}
-\def\mycolor{red}
+\def\mycolor{blue}
 \hypersetup{colorlinks=true,linkcolor=\mycolor,citecolor=\mycolor,urlcolor=\mycolor}
 \RequirePackage[style=apa, backend=biber, natbib=true]{biblatex}
 \newcounter{comment}[section]
 \setcounter{comment}{0}
-\renewcommand{\thecomment}{Comment\,\,\arabic{comment}}
+\renewcommand{\thecomment}{\bfseries Comment\,\,\arabic{comment}}
 
 \newenvironment{comment}
    {\refstepcounter{comment} \bigskip \noindent {\textbf{\thecomment} } ---\ }
