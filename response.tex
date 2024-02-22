@@ -1,64 +1,52 @@
 \documentclass{response}
+\addbibresource{references.bib}
 \begin{document}
 
 \section*{Response to the reviewers}
 % ******************************************************** %
 %                       COVER LETTER                       %
 % ******************************************************** %
-We thank the reviewers for their critical assessment of our work. 
-In the following we address their concerns comment by comment. 
+We thank the reviewers for their critical assessment of our work.
+In the following we address their concerns comment by comment.
 \bigskip
 \hrule
 \section{AE review}
+Great job! We should accept the paper immediately. An example of parenthesized citation \citep{pearl2009causality}. \citet{pearl2009causality} did something -- textual citation example.
+
 \begin{comment}
-Great but writing needs to be improved! Sure!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-\end{comment}
-\begin{response}
-	fixed.
-\end{response}
-% \reviewersection
-% comment one description 
-\begin{comment}
-	Good job!
-	\label{pt:foo}
+How old are you?
 \end{comment}
 
-% Our response
 \begin{response}
-	We agree with the reviewer on this important comment. This is what we did to
-	fix it. 
+	26.
 \end{response}
 
 \begin{comment}
-	good
-	\label{pt:bar}
+What's your weapon and What's your name?
 \end{comment}
+
+\begin{response}
+	Please ref to \ref{pt:foo}, and \ref{pt:bar}.
+\end{response}
 
 \section{Reviewer 1}
 
-\begin{response}
-	And our response to it.
-\end{response}
-
-\begin{comment}
-	I argue to accept your paper right now!
+\begin{comment}\label{pt:foo}
+What's your weapon?
 \end{comment}
 
 \begin{response}
-	Thanks!
+	Frostmourne.
 \end{response}
-% Begin a new reviewer section
-% \reviewersection
 
-\begin{comment}
-	This is the second comment of Reviewer.
+\begin{comment}\label{pt:bar}
+What's your name?
 \end{comment}
 
 \begin{response}
-	Our response to it with reference to one of our comments above using the \LaTeX's 
-	label/ref system (see also \ref{pt:foo} of review 1).
+	Dead Knight.
 \end{response}
-
+\printbibliography
 \end{document}
 
 

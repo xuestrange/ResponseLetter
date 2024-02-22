@@ -84,5 +84,8 @@
     <requires type="dynamic">
       <file>response.bcf</file>
     </requires>
+    <requires type="editable">
+      <file>references.bib</file>
+    </requires>
   </external>
 </requests>

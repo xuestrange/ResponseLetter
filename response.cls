@@ -25,13 +25,18 @@
 \def\mycolor{blue}
 \hypersetup{colorlinks=true,linkcolor=\mycolor,citecolor=\mycolor,urlcolor=\mycolor}
 \RequirePackage[style=apa, backend=biber, natbib=true]{biblatex}
-\newcounter{comment}[section]
-\setcounter{comment}{0}
-\renewcommand{\thecomment}{\bfseries Comment\,\,\arabic{comment}}
+
+% Counter for comments
+\RequirePackage{nameref}
+\newcommand*{\reviewer}{\@currentlabelname}
+
+\newcounter{commentcounter}[section]
+\setcounter{commentcounter}{0}
+\RequirePackage[normalem]{ulem}
+\renewcommand{\thecommentcounter}{{\uline{Comment\,\,\arabic{commentcounter}, \reviewer}}}
 
 \newenvironment{comment}
-   {\refstepcounter{comment} \bigskip \noindent {\textbf{\thecomment} } ---\ }
-   {\par }
+{\refstepcounter{commentcounter} {\medskip \noindent \textbf{Comment} \arabic{commentcounter}}  ---\ }{\medskip \par}
 
 \newenvironment{response}
    {\medskip \noindent \color{blue} \textbf{Response}:\  }
