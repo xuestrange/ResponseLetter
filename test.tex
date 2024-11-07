@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{xparse}
+\usepackage{tcolorbox}
+
+% Define the comment environment
+\RenewDocumentEnvironment{comment}{o} % 'o' means optional argument
+{
+  \IfValueTF{#1} % Check if the optional argument is provided
+    {% If true (optional argument is provided)
+      \begin{equation}
+      % Add math environment label if desired:
+      % \label{eq:#1}
+    }
+    {% If false (no optional argument)
+      \begin{tcolorbox}[colback=yellow!10!white, colframe=black, title=Comment]
+    }
+}
+{
+  \IfValueTF{#1}
+    {\end{equation}}
+    {\end{tcolorbox}}
+}
+
+\begin{document}
+
+% Test without an optional argument
+\begin{comment}
+This is a text inside a tcolorbox without an optional argument.
+\end{comment}
+
+% Test with an optional argument (e.g., 'void')
+\begin{comment}[void]
+x
+\end{comment}
+
+\end{document}
