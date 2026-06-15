@@ -1,9 +1,0 @@
-[0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'build/response.blg'
-[32] biber-darwin:340> INFO - === Wed Nov  6, 2024, 15:25:27
-[40] Biber.pm:419> INFO - Reading 'build/response.bcf'
-[86] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
-[95] bbl.pm:660> INFO - Writing 'build/response.bbl' with encoding 'UTF-8'
-[95] bbl.pm:763> INFO - Output to build/response.bbl
-[95] Biber.pm:131> WARN - The file 'build/response.bcf' does not contain any citations!
-[95] Biber.pm:133> INFO - WARNINGS: 1

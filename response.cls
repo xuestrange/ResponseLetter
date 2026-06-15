@@ -1,26 +1,32 @@
+% Author: Junzhi Xue
+% Date: 2024-11-06
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{response}[2023/08/04 Paper comment-by-comment responses]
 \LoadClass[12pt,letterpaper]{article}
 
+\RequirePackage[dvipsnames]{xcolor}
 \RequirePackage[breakable,skins]{tcolorbox}
 
-\RequirePackage{xr}
+% \RequirePackage{xr}
 \RequirePackage{color}
-\RequirePackage[dvipsnames]{xcolor}
 
 \RequirePackage{titlesec}
 \RequirePackage{amsmath,amssymb,amsthm,bm,fixdif}
 \RequirePackage{graphicx}
+\RequirePackage{longtable}
 \RequirePackage{float}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{pdflscape}
 % ===================== Font Setting ===================== %
-% \RequirePackage{newtxtext} % text font
-% \RequirePackage{newtxmath} % math font
+\RequirePackage{newtxtext} % text font
+\RequirePackage{newtxmath} % math font
 
 % \RequirePackage{newpxtext} % text font
 % \RequirePackage{newpxmath} % math font
 
-\RequirePackage{fourier}     % text font
-\RequirePackage{fouriernc}   % math font
+% \RequirePackage{fourier}     % text font
+% \RequirePackage{fouriernc}   % math font
 % ======================================================== %
 \RequirePackage{setspace}
 \onehalfspacing
@@ -36,7 +42,7 @@
 	\renewcommand{\footrulewidth}{0pt}   % 页脚横线的宽度
 }
 \pagestyle{plain}
-
+\RequirePackage{enumitem}
 \RequirePackage{hyperref}
 \RequirePackage[noabbrev]{cleveref}
 
@@ -53,47 +59,50 @@
 \RequirePackage[normalem]{ulem}
 \renewcommand{\thecommentcounter}{{\uline{Comment\,\,\arabic{commentcounter}, \reviewer}}}
 
-
-\newcommand{\red}[1]{\textit{\textcolor{red}{#1}}}
-
-% \titleformat{\section}[hang]{\Large\bfseries}{}{0em}{}[\rule{\textwidth}{0.5em}]
 \titleformat{\section}[hang]{\LARGE\bfseries}{}{0em}{}[]
 \renewcommand{\thesubsection}{\arabic{subsection}}
 
-\definecolor{background_color}{RGB}{64, 64, 64}
-\definecolor{point_color}{RGB}{255, 255, 255}
-\definecolor{response_color}{RGB}{26, 115, 242}
+\definecolor{background_color}{RGB}{245, 248, 250}
+\definecolor{point_color}{RGB}{70, 95, 115}
+\definecolor{response_color}{RGB}{0, 0, 255} % blue
 
 \RequirePackage{xparse}
-
-% renew the 'comment' environment
+% color config comes from https://zhuanlan.zhihu.com/p/336171630
 \RenewDocumentEnvironment{comment}{o}  % 'o' for optional argument
 {
     \IfValueTF{#1}  % Check if the optional argument is provided
     {
-        % No argument, viod environment, you better set the optional argument to be `void'
-        \begin{tcolorbox}[left = 2mm, right = 2mm, outer arc = 1mm, arc = 1mm, leftrule = 0mm, rightrule = 0mm, toprule = 0mm, bottomrule = 0mm, breakable, enhanced, before upper={\parindent15pt}]
 
+        % No argument, void environment
+    	\begin{tcolorbox}[left = 2mm, right = 2mm, outer arc = 1mm, arc = 1mm, leftrule = 0mm, rightrule = 0mm, toprule = 0mm, bottomrule = 0mm, breakable, enhanced, before upper={\parindent15pt},
+        colback=Emerald!10,colframe=cyan!40!black
+        ]
     }
     {
 
         \refstepcounter{commentcounter}
-        \begin{tcolorbox}[title={\flushleft \noindent Comment \#\arabic{commentcounter}}, coltitle = point_color, fonttitle = \bfseries, colframe = background_color, left = 2mm, right = 2mm, outer arc = 1mm, arc = 1mm, leftrule = 0mm, rightrule = 0mm, toprule = 0mm, bottomrule = 0mm, breakable, enhanced, before upper={\parindent15pt}]
+        \begin{tcolorbox}[
+         title={\flushleft \noindent Comment \#\arabic{commentcounter}}, 
+          fonttitle = \bfseries, left = 2mm, right = 2mm, outer arc = 1mm, arc = 1mm, leftrule = 0mm, rightrule = 0mm, toprule = 0mm, bottomrule = 0mm, breakable, enhanced, before upper={\parindent15pt}, 
+          colback=Emerald!10,colframe=cyan!40!black,
+          ]
     }
 }
 {
     \IfValueTF{#1}
     {
         \end{tcolorbox}
-    }{
+    }
+    {
         \end{tcolorbox}
     }
 }
 
 \newenvironment{response}[1][Response]
-{\medskip \noindent \hspace{0.5em} \textcolor{response_color}{\textbf{#1}\textbf{:}\,\,}  }
+{\medskip \noindent \hspace{0em} \textcolor{Blue}{\textbf{#1}\textbf{:}\,\,}}
 {\medskip \par}
 
-\renewcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\green}[1]{\textcolor{PineGreen}{#1}}
+
 \newcommand{\placeholder}[0]{\textcolor{red}{Section X.x}}
